@@ -1,5 +1,7 @@
 package Game.Entities.Static;
 
+import java.awt.Color;
+
 import Main.Handler;
 
 /**
@@ -11,13 +13,28 @@ public class Apple {
 
     public int xCoord;
     public int yCoord;
-    public boolean rotten;
-
-    public Apple(Handler handler,int x, int y, boolean rotten){
+    
+    private int maxSteps = 100; 
+    private boolean good = true;
+    public Color appleColor = Color.RED;
+    
+    public Apple(Handler handler,int x, int y){
         this.handler=handler;
         this.xCoord=x;
         this.yCoord=y;
-        this.rotten=rotten;
+    }
+    
+    public boolean isGood() {
+    	return good;
+    }
+    
+   public void checkBad(int x) {
+    	if(x > maxSteps) {
+    		good = false;
+    		appleColor = Color.GREEN;
+    	}
+
     }
 
 }
+

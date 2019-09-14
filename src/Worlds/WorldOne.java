@@ -16,7 +16,7 @@ public class WorldOne extends WorldBase{
 
         //has to be a number bigger than 20 and even
         GridWidthHeightPixelCount = 60;
-        GridPixelsize = (600/GridWidthHeightPixelCount);
+        GridPixelsize = (840/GridWidthHeightPixelCount);
         playerLocation = new Boolean[GridWidthHeightPixelCount][GridWidthHeightPixelCount];
         appleLocation = new Boolean[GridWidthHeightPixelCount][GridWidthHeightPixelCount];
 
@@ -40,22 +40,16 @@ public class WorldOne extends WorldBase{
             }while(!goodCoordinates);
             
             
-            apple = new Apple(handler,appleX,appley,false);
+            apple = new Apple(handler,appleX,appley);
             appleLocation[appleX][appley]=true;
-            if (super.player.stepCount == 9){
-            	apple.rotten = true;
-            }
-
         }
     }
 
     @Override
     public void render(Graphics g){
         super.render(g);
-        if(apple.rotten==true) {
-        	g.setColor(Color.BLACK);
-        }
-        player.render(g,playerLocation);
+        player.render(g, playerLocation);
     }
 
 }
+

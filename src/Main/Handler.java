@@ -1,6 +1,7 @@
 package Main;
 
-import Input.KeyManager;
+
+import Game.Entities.Static.Apple;
 import Input.MouseManager;
 import Worlds.WorldBase;
 
@@ -35,7 +36,7 @@ public class Handler {
         this.game = game;
     }
 
-    public KeyManager getKeyManager(){
+    public Input.KeyManager getKeyManager(){
         return game.getKeyManager();
     }
 
@@ -51,5 +52,5 @@ public class Handler {
         this.world = world;
     }
 
-
 }
+
