@@ -37,6 +37,7 @@ public class Player {
     public String direction;
     
     public double gameScore;
+    public int score;
 
     public Player(Handler handler){
 
@@ -48,6 +49,7 @@ public class Player {
         justAte = false;
         int lenght = 1;
         gameScore = 0;
+        score = 0;
 
 
 
@@ -225,10 +227,12 @@ public class Player {
 
             Eat();
             
-            if(handler.getWorld().getApple().isGood())gameScore=Math.sqrt(2*gameScore+1);
+            if(handler.getWorld().getApple().isGood())
+            	gameScore=Math.sqrt(2*gameScore+1);
             else gameScore=-Math.sqrt(2*gameScore+1);
             speedCount = speedCount - 1;
 
+            score = (int)gameScore;
         }
 
 
@@ -273,7 +277,7 @@ public class Player {
 
         g.setColor(Color.ORANGE);
 
-        g.drawString("Score: " + gameScore, 50, 50);
+        g.drawString("Score: " + score, 50, 50);
         
 
         for (int i = 0; i < handler.getWorld().GridWidthHeightPixelCount; i++) {
